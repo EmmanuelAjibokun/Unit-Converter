@@ -1,6 +1,7 @@
 :root {
   --light-blue: #6943FF;
   --dark-blue: #5A537B;
+  --grey: #F4F4F4;
 }
 
 html {
@@ -14,7 +15,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0;
 }
 
@@ -31,6 +32,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 30px;
 }
 
 .head h1 {
@@ -53,7 +55,55 @@ input[type="number" i] {
   text-align: center;
   display: flex;
   border: none;
+  background: none;
   font-size: 5.8rem;
   font-weight: 800;
   width: 100%;
+  outline: 0;
+  /* firefox */
+  -moz-appearance: textfield;
+}
+
+/* Remove arrows and spinners */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+  -webkit-appearance:  none;
+  margin: 0;
+}
+
+.convert {
+  background-color: white;
+  color: black;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  padding: 9px 27px;
+}
+
+.foot {
+  background: var(--grey);
+  line-height: 20px;
+  padding: 36px 25px;
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.length-container, .volume-container, .mass-container {
+  background-color: white;
+  padding: 20px;
+}
+
+.foot h3 {
+  margin: 0 0 10px;
+  font-size: 2.0rem;
+  font-weight: 600;
+  color: var(--dark-blue);
+}
+
+.result > span:nth-child(1) {
+  border-right: 1px solid black;
+  padding-right: 6px;
 }
