@@ -16,19 +16,19 @@ function feetToMeter(input) {
 }
 
 function literTogallon(input) {
-  return result = input * 0.264
+  return result = Math.round((input * 0.264) * 1000) / 1000
 }
 
 function gallonToLiter(input) {
-  return result = input / 0.264
+  return result = Math.round((input / 0.264) * 1000) / 1000
 }
 
 function kilogramToPound(input) {
-  return result = input * 2.204
+  return result = Math.round((input * 2.204) * 1000) / 1000;
 }
 
 function poundToKilogram(input) {
-  return result = input / 2.204
+  return result = Math.round((input / 2.204) * 1000) / 1000
 }
 
 console.log(feetToMeter(input))
