@@ -21,16 +21,26 @@ function outputInputValue() {
   }
 }
 
+// Concatenate respective unit measure to unit value
 // The next block of codes is to check if the unit measures are plural and
 // to check if a plural or singular unit measure is the most appropriate for respective unit value
 for (const child of inputUnit) {
-  if(checkForPlural(child.textContent) === "s" ) {
-    console.log(child.textContent + " contains 'S'")
+  if( input.value <= 1) {
+    if(checkForPlural(child.textContent) === "s" ) {
+      inputUnit.textContent = removeLastChar(child.textContent)
+    }
+  } else {
+    if(checkForPlural(child.textContent) === "s" ) {
+      console.log(child.textContent + " contains 'S'")
+    }
   }
 }
 function checkForPlural(unit) {
   const getLastChar = unit.charAt(unit.length - 1)
   return getLastChar
+}
+function removeLastChar(unit) {
+  return unit.slice(0, -1)
 }
 
 
