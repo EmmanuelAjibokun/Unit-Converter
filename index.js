@@ -7,7 +7,8 @@
 const input = document.getElementById("convert-input");
 const inputValue = document.querySelectorAll('.inputValue');
 const convertBtn = document.querySelector('.convert');
-console.log(input)
+const inputUnit = document.querySelectorAll('.inputUnit');
+console.log(inputUnit)
 
 convertBtn.addEventListener('click', ()=> {
   outputInputValue()
@@ -15,10 +16,23 @@ convertBtn.addEventListener('click', ()=> {
 })
 
 function outputInputValue() {
-  for(child of inputValue) {
+  for(const child of inputValue) {
     child.textContent = input.value;
   }
 }
+
+// The next block of codes is to check if the unit measures are plural and
+// to check if a plural or singular unit measure is the most appropriate for respective unit value
+for (const child of inputUnit) {
+  if(checkForPlural(child.textContent) === "s" ) {
+    console.log(child.textContent + " contains 'S'")
+  }
+}
+function checkForPlural(unit) {
+  const getLastChar = unit.charAt(unit.length - 1)
+  return getLastChar
+}
+
 
 function meterToFeet(input) {
   return result = Math.round((input * 3.281) * 1000) / 1000
