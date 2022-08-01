@@ -8,7 +8,6 @@ const input = document.getElementById("convert-input");
 const inputValue = document.querySelectorAll('.inputValue');
 const convertBtn = document.querySelector('.convert');
 const inputUnit = document.querySelectorAll('.inputUnit');
-console.log(input.value)
 
 convertBtn.addEventListener('click', ()=> {
   outputInputValue()
@@ -38,15 +37,18 @@ function displayUnitMeasure() {
         child.textContent = child.textContent;
       }
     } else {
-      if(checkForPlural(child.textContent) === "s" ) {
-        // inputUnit.textContent = child.textContent
+      if(child.textContent === " feet") {
+        child.textContent
       } else {
-        child.textContent = child.textContent + "s"
+        if(checkForPlural(child.textContent) === "s" ) {
+          // inputUnit.textContent = child.textContent
+        } else {
+          child.textContent = child.textContent + "s"
+        }
       }
     }
   }
 }
-
 function checkForPlural(unit) {
   const getLastChar = unit.charAt(unit.length - 1)
   return getLastChar
