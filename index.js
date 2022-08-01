@@ -8,33 +8,45 @@ const input = document.getElementById("convert-input");
 const inputValue = document.querySelectorAll('.inputValue');
 const convertBtn = document.querySelector('.convert');
 const inputUnit = document.querySelectorAll('.inputUnit');
-console.log(inputUnit)
+console.log(input.value)
 
 convertBtn.addEventListener('click', ()=> {
   outputInputValue()
+  displayUnitMeasure()
   console.log(feetToMeter(input.value))
 })
 
 function outputInputValue() {
   for(const child of inputValue) {
-    child.textContent = input.value;
+    if(input.value < 0 || !input.value) {
+      child.textContent = 0;
+    } else {
+      child.textContent = input.value;
+    }
   }
 }
 
 // Concatenate respective unit measure to unit value
 // The next block of codes is to check if the unit measures are plural and
 // to check if a plural or singular unit measure is the most appropriate for respective unit value
-for (const child of inputUnit) {
-  if( input.value <= 1) {
-    if(checkForPlural(child.textContent) === "s" ) {
-      inputUnit.textContent = removeLastChar(child.textContent)
-    }
-  } else {
-    if(checkForPlural(child.textContent) === "s" ) {
-      console.log(child.textContent + " contains 'S'")
+function displayUnitMeasure() {
+  for (const child of inputUnit) {
+    if( input.value <= 1 && input.value >= 0) {
+      if(checkForPlural(child.textContent) === "s" ) {
+        child.textContent = removeLastChar(child.textContent)
+      } else {
+        child.textContent = child.textContent;
+      }
+    } else {
+      if(checkForPlural(child.textContent) === "s" ) {
+        // inputUnit.textContent = child.textContent
+      } else {
+        child.textContent = child.textContent + "s"
+      }
     }
   }
 }
+
 function checkForPlural(unit) {
   const getLastChar = unit.charAt(unit.length - 1)
   return getLastChar
