@@ -4,20 +4,19 @@
 1 kilogram = 2.204 pound
 */
 
-const input = document.querySelector('#convert-input');
+const input = document.getElementById("convert-input");
 const inputValue = document.querySelectorAll('.inputValue');
 const convertBtn = document.querySelector('.convert');
-console.log(input.value)
+console.log(input)
 
 convertBtn.addEventListener('click', ()=> {
   outputInputValue()
-  console.log(feetToMeter(input))
-  console.log(input)
+  console.log(feetToMeter(input.value))
 })
 
 function outputInputValue() {
   for(child of inputValue) {
-    child.textContent = 12;
+    child.textContent = input.value;
   }
 }
 

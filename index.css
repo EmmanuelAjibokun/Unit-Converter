@@ -50,7 +50,7 @@ body {
   width: min-content;
 }
 
-input[type="number" i] {
+input[type="number"] {
   padding: 1px 2px;
   text-align: center;
   display: flex;
