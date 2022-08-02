@@ -8,11 +8,13 @@ const input = document.getElementById("convert-input");
 const inputValue = document.querySelectorAll('.inputValue');
 const convertBtn = document.querySelector('.convert');
 const inputUnit = document.querySelectorAll('.inputUnit');
+const resulValue = document.querySelectorAll('resultValue')
 
 convertBtn.addEventListener('click', ()=> {
   outputInputValue()
   displayUnitMeasure()
-  console.log(feetToMeter(input.value))
+  conversionMethods.input = input.value
+  console.log(conversionMethods.meterToFeet())
 })
 
 function outputInputValue() {
@@ -57,10 +59,27 @@ function removeLastChar(unit) {
   return unit.slice(0, -1)
 }
 
-
-function meterToFeet(input) {
-  return result = Math.round((input * 3.281) * 1000) / 1000
+// Rendering the unit measures for the result of the input value on the dom
+const unitArr = ["feet", "meters", "gallons", "liters", "pounds", "kilos"];
+// Display result value
+for(let i = 0; i < unitArr.length; i++) {
+  //console.log(meterToFeet(input.value) +" "+ unitArr[i])
 }
+
+const conversionMethods = {
+  input: input.value
+}
+conversionMethods.meterToFeet = function () {
+  let result = Math.round((this.input * 3.281) * 1000) / 1000;
+  if(result === 1 || result === 0) {
+    result = `${result} ${unitArr[0]}`
+    return result
+  } else if(result > 1) {
+    result = `${result} ${unitArr[0]}s`
+    return result
+  }
+}
+
 
 function feetToMeter(input) {
   return result = Math.round((input / 3.281) * 1000) / 1000
