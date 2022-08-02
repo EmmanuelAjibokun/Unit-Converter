@@ -68,7 +68,7 @@ function removeLastChar(unit) {
 }
 
 // Rendering the unit measures for the result of the input value on the dom
-const unitArr = ["feet", "meters", "gallons", "liters", "pounds", "kilos"];
+const unitArr = ["feet", "meter", "gallon", "liter", "pound", "kilo"];
 // Display result value
 
 const conversionMethods = {
@@ -76,35 +76,70 @@ const conversionMethods = {
 }
 conversionMethods.meterToFeet = function () {
   let result = Math.round((this.input * 3.281) * 1000) / 1000;
-  if(result === 1 || result === 0) {
+  if(result >= 1 || result === 0) {
     result = `${result} ${unitArr[0]}`
-    return result
-  } else if(result > 1) {
-    result = `${result} ${unitArr[0]}s`
     return result
   }
   return "0 feet"
 }
 
 
-function feetToMeter(input) {
-  return result = Math.round((input / 3.281) * 1000) / 1000
-  
+conversionMethods.feetToMeter = function () {
+  let result = Math.round((this.input / 3.281) * 1000) / 1000;
+  if(result === 1 || result === 0) {
+    result = `${result} ${unitArr[1]}`
+    return result
+  } else if(result > 1) {
+    result = `${result} ${unitArr[1]}s`
+    return result
+  }
+  return "0 meter"
 }
 
-function literTogallon(input) {
-  return result = Math.round((input * 0.264) * 1000) / 1000
+conversionMethods.literTogallon = function () {
+  let result = Math.round((this.input * 0.264) * 1000) / 1000
+  if(result === 1 || result === 0) {
+    result = `${result} ${unitArr[2]}`
+    return result
+  } else if(result > 1) {
+    result = `${result} ${unitArr[2]}s`
+    return result
+  }
+  return "0 gallon"
 }
 
-function gallonToLiter(input) {
-  return result = Math.round((input / 0.264) * 1000) / 1000
+conversionMethods.gallonToLiter = function () {
+  let result = Math.round((this.input / 0.264) * 1000) / 1000;
+  if(result === 1 || result === 0) {
+    result = `${result} ${unitArr[3]}`
+    return result
+  } else if(result > 1) {
+    result = `${result} ${unitArr[3]}s`
+    return result
+  }
+  return "0 liter"
 }
 
-function kilogramToPound(input) {
-  return result = Math.round((input * 2.204) * 1000) / 1000;
+conversionMethods.kilogramToPound = function () {
+  let result = Math.round((this.input * 2.204) * 1000) / 1000;
+  if(result === 1 || result === 0) {
+    result = `${result} ${unitArr[4]}`
+    return result
+  } else if(result > 1) {
+    result = `${result} ${unitArr[4]}s`
+    return result
+  }
+  return "0 pound"
 }
 
-function poundToKilogram(input) {
-  return result = Math.round((input / 2.204) * 1000) / 1000
+conversionMethods.poundToKilogram = function () {
+  let result = Math.round((this.input / 2.204) * 1000) / 1000;
+  if(result === 1 || result === 0) {
+    result = `${result} ${unitArr[5]}`
+    return result
+  } else if(result > 1) {
+    result = `${result} ${unitArr[5]}s`
+    return result
+  }
+  return "0 kilo"
 }
-
