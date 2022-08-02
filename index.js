@@ -27,6 +27,7 @@ function outputInputValue() {
   }
 }
 
+// Display result value
 function outputResultValue() {
   for(const child of resultValue) {
     for(let i = 0; i < unitArr.length; i++) {
@@ -69,13 +70,14 @@ function removeLastChar(unit) {
   return unit.slice(0, -1)
 }
 
-// Rendering the unit measures for the result of the input value on the dom
+// Rendering the unit measures for the result of the input value on the html page
+// Several functions for the computation of the conversion from one unit to another, assign to an object
 const unitArr = ["feet", "meter", "gallon", "liter", "pound", "kilo"];
-// Display result value
 
 const conversionMethods = {
   input: input.value
 }
+
 conversionMethods.feet = function () {
   let result = Math.round((this.input * 3.281) * 1000) / 1000;
   if(result >= 1 || result === 0) {
