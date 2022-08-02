@@ -8,13 +8,14 @@ const input = document.getElementById("convert-input");
 const inputValue = document.querySelectorAll('.inputValue');
 const convertBtn = document.querySelector('.convert');
 const inputUnit = document.querySelectorAll('.inputUnit');
-const resulValue = document.querySelectorAll('resultValue')
+const resultValue = document.querySelectorAll('.resultValue')
 
 convertBtn.addEventListener('click', ()=> {
   outputInputValue()
   displayUnitMeasure()
   conversionMethods.input = input.value
   console.log(conversionMethods.meterToFeet())
+  outputResultValue()
 })
 
 function outputInputValue() {
@@ -24,6 +25,13 @@ function outputInputValue() {
     } else {
       child.textContent = input.value;
     }
+  }
+}
+
+function outputResultValue() {
+  for(const child of resultValue) {
+    child.textContent = conversionMethods.meterToFeet()
+    console.log(child.textContent)
   }
 }
 
@@ -62,9 +70,6 @@ function removeLastChar(unit) {
 // Rendering the unit measures for the result of the input value on the dom
 const unitArr = ["feet", "meters", "gallons", "liters", "pounds", "kilos"];
 // Display result value
-for(let i = 0; i < unitArr.length; i++) {
-  //console.log(meterToFeet(input.value) +" "+ unitArr[i])
-}
 
 const conversionMethods = {
   input: input.value
@@ -78,6 +83,7 @@ conversionMethods.meterToFeet = function () {
     result = `${result} ${unitArr[0]}s`
     return result
   }
+  return "0 feet"
 }
 
 
