@@ -8,7 +8,17 @@ const input = document.getElementById("convert-input");
 const inputValue = document.querySelectorAll('.inputValue');
 const convertBtn = document.querySelector('.convert');
 const inputUnit = document.querySelectorAll('.inputUnit');
-const resultValue = document.querySelectorAll('.resultValue')
+const resultValue = document.querySelectorAll('.resultValue');
+const inputparent = document.querySelector(".input-container");
+
+function updateSize() {
+  const span = document.getElementById('size-calibration');
+  span.innerText = input.value
+}
+document.addEventListener('DOMContentLoaded', () => {
+  input.oninput = updateSize
+  updateSize()
+})
 
 convertBtn.addEventListener('click', ()=> {
   outputInputValue()
