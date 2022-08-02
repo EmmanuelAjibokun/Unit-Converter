@@ -14,7 +14,6 @@ convertBtn.addEventListener('click', ()=> {
   outputInputValue()
   displayUnitMeasure()
   conversionMethods.input = input.value
-  console.log(conversionMethods.meterToFeet())
   outputResultValue()
 })
 
@@ -32,10 +31,7 @@ function outputResultValue() {
   for(const child of resultValue) {
     for(let i = 0; i < unitArr.length; i++) {
       if(child.getAttribute('value') === unitArr[i]) {
-        child.textContent = conversionMethods.meterToFeet()
-        console.log( conversionMethods.meterToFeet())
-      } else {
-        console.log(child.getAttribute('value'))
+        child.textContent = conversionMethods[child.getAttribute('value')]()
       }
     }
   }
